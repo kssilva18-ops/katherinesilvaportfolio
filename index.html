@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>portfolio</title>
+    <link rel="stylesheet" href="./style.css">
+
+  </head>
+    
+  <body>
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Katherine Silva - Journalist & Storyteller</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2a2a2a;
+            --secondary: #f97316;
+            --light: #f5f5f5;
+            --dark: #171717;
+            --accent: #fb923c;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            background-color: var(--light);
+            color: var(--primary);
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        .navbar {
+            background-color: var(--dark) !important;
+            border-bottom: 3px solid var(--primary);
+            padding: 1.2rem 0;
+        }
+
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.8rem;
+            letter-spacing: -0.5px;
+            color: var(--light) !important;
+        }
+
+        .nav-link {
+            color: var(--light) !important;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 0.5px;
+            margin: 0 0.5rem;
+            transition: color 0.3s;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: var(--secondary) !important;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--dark) 0%, var(--primary) 100%);
+            color: white;
+            padding: 8rem 0 6rem;
+            position: relative;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--secondary);
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: 800;
+            letter-spacing: -2px;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            font-weight: 300;
+            margin-bottom: 2rem;
+        }
+
+        .hero .tagline {
+            color: var(--accent);
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 2px;
+        }
+
+        /* Section Styling */
+        section {
+            padding: 5rem 0;
+        }
+
+        .section-title {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 3rem;
+            letter-spacing: -1px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: var(--secondary);
+        }
+
+        /* Bio Section */
+        .bio-section {
+            background: white;
+        }
+
+        .bio-image {
+            width: 100%;
+            max-width: 350px;
+            aspect-ratio: 1;
+            border: 4px solid var(--primary);
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 2rem;
+            display: block;
+        }
+
+        .bio-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #404040;
+        }
+
+        /* Work Cards */
+        .work-card {
+            background: white;
+            border: 3px solid var(--primary);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            transition: all 0.3s;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .work-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            border-color: var(--secondary);
+        }
+
+        .work-card h3 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+
+        .work-card .category {
+            display: inline-block;
+            background: var(--dark);
+            color: white;
+            padding: 0.3rem 0.8rem;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 1rem;
+        }
+
+        .work-card p {
+            color: #666;
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+
+        .btn-primary {
+            background: var(--secondary);
+            border: none;
+            padding: 0.6rem 1.5rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 0.5px;
+            transition: all 0.3s;
+            display: inline-block;
+            text-decoration: none;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--accent);
+            transform: translateX(5px);
+            color: white;
+        }
+
+        /* Media Grid */
+        .media-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .media-item {
+            background: white;
+            border: 3px solid var(--primary);
+            overflow: hidden;
+            transition: all 0.3s;
+        }
+
+        .media-item:hover {
+            border-color: var(--secondary);
+            transform: scale(1.02);
+        }
+
+        .media-item iframe {
+            width: 100%;
+            height: 250px;
+            border: none;
+        }
+
+        .media-caption {
+            padding: 1.5rem;
+        }
+
+        .media-caption h4 {
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .media-caption p {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        /* Resume Section */
+        .resume-section {
+            background: white;
+        }
+
+        .resume-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .resume-embed {
+            width: 100%;
+            height: 800px;
+            border: 3px solid var(--primary);
+            margin-top: 2rem;
+        }
+
+        .resume-download {
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        .btn-download {
+            background: var(--secondary);
+            color: white;
+            border: none;
+            padding: 0.8rem 2rem;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 0.5px;
+        }
+
+        .btn-download:hover {
+            background: var(--accent);
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        /* Contact Section */
+        .contact-section {
+            background: var(--dark);
+            color: white;
+            text-align: center;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+        }
+
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 0.8rem 1.5rem;
+            border: 2px solid white;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+        }
+
+        .social-link:hover {
+            background: var(--secondary);
+            border-color: var(--secondary);
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary);
+            color: #999;
+            padding: 2rem 0;
+            text-align: center;
+            font-size: 0.85rem;
+        }
+
+        footer a {
+            color: var(--secondary);
+            text-decoration: none;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1.2rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .bio-image {
+                max-width: 250px;
+            }
+
+            .resume-embed {
+                height: 600px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+    <div class="container">
+        <a class="navbar-brand" href="#home">Katherine Silva</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                <li class="nav-item"><a class="nav-link" href="#writing">Writing</a></li>
+                <li class="nav-item"><a class="nav-link" href="#video">Video</a></li>
+                <li class="nav-item"><a class="nav-link" href="#resume">Resume</a></li>
+                <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Hero Section -->
+<section id="home" class="hero">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <p class="tagline">Journalist • Storyteller</p>
+                <h1>Katherine Silva</h1>
+                <p>Sports journalist crafting stories that go beyond the game</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- About Section -->
+<section id="about" class="bio-section">
+    <div class="container">
+        <h2 class="section-title">About</h2>
+        <div class="row align-items-center mt-5">
+            <div class="col-md-4">
+               <img src="https://i.imgur.com/6VGyKFS.jpg" alt="Katherine Silva" class="bio-image">
+            </div>
+            <div class="col-md-8">
+                <div class="bio-text">
+                    <p>I'm a sports journalist and graduate student at Northwestern University's Medill School of Journalism. My work focuses on the intersection of sports, community, human rights, and culture.</p>
+                    
+                    <p>I'm drawn to stories that go beyond the game—exploring how sports reflect and shape our communities. Most specifically I'm interested in the social justice movements within womens sports, from grassroots organizing in the leagues, to the fan discourse outside of it.</p>
+                    
+                    <p><strong>Beat interests:</strong> Women's sports • Sports business • Community impact • Investigative reporting</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Writing Section -->
+<section id="writing">
+    <div class="container">
+        <h2 class="section-title">Writing</h2>
+        <div class="row mt-5">
+            <div class="col-lg-4 mb-4">
+                <div class="work-card">
+                    <span class="category">Feature</span>
+                    <h3>WM Phoenix Open marked another big week for Good Good. Here's why</h3>
+                    <p>Youtube golf sensation Good Good is blurring the lines between amateur and professional golf, launching a PGA Tour event and attracting millions of fans with its relatable content.</p>
+                    <a href="https://golfweek.usatoday.com/story/sports/golf/2026/02/09/good-good-golf-big-week-phoenix-sets-tone-2026/88587678007/" class="btn btn-primary" target="_blank">Read Story →</a>
+                </div>
+            </div>
+            <div class="col-lg-4 mb-4">
+                <div class="work-card">
+                    <span class="category">Data</span>
+                    <h3>WM Phoenix Open lookback. The math of acing golf’s rowdiest hole</h3>
+                    <p>What does it take to get a hole-in-one at the WM Phoenix Open's "coliseum"?</p>
+                    <a href="https://www.azcentral.com/story/sports/golf/phoenix-open/2026/02/11/phoenix-open-16th-hole-in-one-probability/88625331007/" class="btn btn-primary" target="_blank">Read Story →</a>
+                </div>
+            </div>
+            <div class="col-lg-4 mb-4">
+                <div class="work-card">
+                    <span class="category">News</span>
+                    <h3>An interactive look at the 2026 WM Phoenix Open</h3>
+                    <p>Spend a weekend at the WM Phoenix Open through the eyes of a fan.</p>
+                    <a href="https://www.azcentral.com/story/sports/golf/phoenix-open/2026/02/11/phoenix-open-timeline-2026/88625959007/" class="btn btn-primary" target="_blank">Read Story →</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Video Section -->
+<section id="video" class="bio-section">
+    <div class="container">
+        <h2 class="section-title">Video</h2>
+        <div class="media-grid">
+            <div class="media-item">
+                <iframe src="https://www.youtube.com/embed/KT9ulCU1-GE" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <div class="media-caption">
+                    <h4>The PreWrap Ep. 1 - INTROS!</h4>
+                    <p>Welcome to The PreWrap, The 303's resident Women's Basketball podcast hosted by Lucy Roberts, Katherine Silva and Sydney Meyer. This week we establish our goal for the podcast, before launching into our main topics: Notre Dame exiting the top 25 for the first time since 2021, the effectiveness of LSU's pre-conference schedule and the four remaining undefeated college teams. We end the pod with a fun game of start, bench, cut.</p>
+                </div>
+            </div>
+            <div class="media-item">
+                <iframe src="https://youtube.com/embed/aGWJRCNu27M" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <div class="media-caption">
+                    <h4>The PreWrap Ep. 2 — the Big 10's overrated? + Unrivaled haters and CBA drama</h4>
+                    <p>In today's episode we question the AP week 10 rankings, namely the undervalued BIG 12 and overvalued (???) BIG 10. We also break down the pros and cons of Unrivaled, before Lucy delivers a timeline of the current CBA negotiations. We discuss the status of the upcoming WNBA season as the clock continues to tick. Katherine poses a spicy question….. would we fire Cathy????????</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Resume Section -->
+<section id="resume" class="resume-section">
+    <div class="container">
+        <div class="resume-container">
+            <h2 class="section-title">Resume</h2>
+            <p class="lead mt-4">View my professional experience and qualifications</p>
+            
+            <!-- Embedded Resume -->
+            <div class="mt-4">
+                <iframe src="https://pdflink.to/f4362608/embed/" frameborder="0" style="border: none; height: 600px; width:100%; max-width: 100%;"></iframe>
+            
+            <!-- Download Button -->
+            <div class="resume-download">
+        
+                <a href="https://pdflink.to/f4362608/" class="btn-download" target="_blank">📄 Download Resume</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Section -->
+<section id="contact" class="contact-section">
+    <div class="container">
+        <h2 class="section-title text-white">Let's Connect</h2>
+        <p class="lead">I'm always interested in new stories and opportunities</p>
+        
+        <div class="social-links">
+            <a href="mailto:katherinesilva2026u.northwestern.edu" class="social-link">✉ Email</a>
+            <a href="https://www.linkedin.com/in/katherine-silva-166129205/" target="_blank" class="social-link">🔗 LinkedIn</a>
+            <a href="https://x.com/kaysilv" target="_blank" class="social-link">🐦 X</a>
+            <a href="https://www.instagram.com/ksilvak/?hl=en" target="_blank" class="social-link">📸 Instagram</a>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <p>&copy; 2025 Katherine Silva. All rights reserved.</p>
+        <p class="mt-2"><small>This page was built by me. I used generative AI for coding tasks; all content was reviewed/edited by me. Last updated: January 2026</small></p>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+    <script  src="./script.js"></script>
+
+  </body>
+  
+</html>
