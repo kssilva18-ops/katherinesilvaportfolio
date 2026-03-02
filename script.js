@@ -1,59 +1,62 @@
-// Smooth scrolling for navigation links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-            target.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
-            });
-        }
-    });
-});
+/**
+ * Katherine Silva Portfolio Logic
+ * Handles Smooth Scrolling, Navbar Transitions, and Reveal Animations
+ */
 
-// Active nav link on scroll
-window.addEventListener('scroll', () => {
-    let current = '';
-    const sections = document.querySelectorAll('section');
+document.addEventListener('DOMContentLoaded', () => {
     
-    sections.forEach(section => {
-        const sectionTop = section.offsetTop;
-        const sectionHeight = section.clientHeight;
-        if (pageYOffset >= sectionTop - 200) {
-            current = section.getAttribute('id');
+    // 1. Navbar Scroll Effect
+    // Shrinks the navbar and adds a shadow when user scrolls down
+    const nav = document.querySelector('.navbar');
+    
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+            nav.style.padding = "0.7rem 0";
+            nav.style.backgroundColor = "var(--navy)"; // Ensures solid color on scroll
+            nav.style.boxShadow = "0 10px 30px rgba(0,0,0,0.15)";
+        } else {
+            nav.style.padding = "1.5rem 0";
+            nav.style.boxShadow = "none";
         }
     });
 
-    document.querySelectorAll('.nav-link').forEach(link => {
-        link.classList.remove('active');
-        if (link.getAttribute('href') === `#${current}`) {
-            link.classList.add('active');
-        }
+    // 2. Sophisticated Fade-In Reveal
+    // Elements glide up and fade in as they enter the viewport
+    const revealOptions = {
+        threshold: 0.15,
+        rootMargin: "0px 0px -50px 0px"
+    };
+
+    const revealOnScroll = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+                observer.unobserve(entry.target); // Only animate once
+            }
+        });
+    }, revealOptions);
+
+    // Target all sections and cards for the reveal
+    const elementsToReveal = document.querySelectorAll('section, .work-card, .bio-image');
+    
+    elementsToReveal.forEach(el => {
+        el.classList.add('reveal-element'); // Apply initial hidden state
+        revealOnScroll.observe(el);
+    });
+
+    // 3. Editorial Smooth Scrolling
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            const targetElement = document.querySelector(targetId);
+
+            if (targetElement) {
+                window.scrollTo({
+                    top: targetElement.offsetTop - 70, // Adjust for navbar height
+                    behavior: 'smooth'
+                });
+            }
+        });
     });
 });
-
-// Add parallax effect to hero
-window.addEventListener('scroll', () => {
-    const hero = document.querySelector('.hero');
-    if (hero) {
-        const scrolled = window.pageYOffset;
-        hero.style.transform = `translateY(${scrolled * 0.5}px)`;
-    }
-});
-```
-
----
-
-**IMPORTANT for CodePen Settings:**
-
-1. Go to **Settings** (gear icon)
-2. Click **CSS** tab
-3. Add this external stylesheet:
-```
-   https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css
-```
-4. Click **JS** tab
-5. Add this external script:
-```
-   https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js
