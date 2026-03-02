@@ -1,143 +1,162 @@
+/* Import Refined Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;500&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap');
+
 :root {
-    --nyt-black: #121212;
-    --polo-green: #043927;
-    --polo-navy: #002344;
-    --polo-gold: #c5a059;
-    --cream-bg: #fdfcf0; /* Classic newsprint/preppy cream */
-    --border-thin: 1px solid #333;
+    --hunter: #043927;
+    --navy: #002344;
+    --gold: #c5a059;
+    --cream: #fdfcf0;
+    --white: #ffffff;
 }
 
 body {
-    font-family: 'Georgia', serif; /* Editorial feel */
-    background-color: var(--cream-bg);
-    color: var(--nyt-black);
-    line-height: 1.6;
+    background-color: var(--cream);
+    color: var(--navy);
+    font-family: 'Inter', sans-serif;
+    letter-spacing: -0.01em;
 }
 
-/* Header & Navigation */
+/* 1. Sleek Navbar */
 .navbar {
-    background-color: var(--cream-bg) !important;
-    border-top: 4px solid var(--nyt-black);
-    border-bottom: 1px solid var(--nyt-black);
-    padding: 0.5rem 0;
+    background-color: var(--navy) !important;
+    padding: 1.5rem 0;
+    border-bottom: 1px solid var(--gold);
 }
 
 .navbar-brand {
-    font-family: 'Georgia', serif;
-    font-weight: 900;
-    font-size: 2.2rem;
-    text-transform: uppercase;
+    font-family: 'Libre Baskerville', serif;
+    color: var(--white) !important;
+    font-weight: 700;
     letter-spacing: -1px;
-    color: var(--nyt-black) !important;
 }
 
 .nav-link {
-    color: var(--nyt-black) !important;
-    font-family: 'Helvetica Neue', Arial, sans-serif; /* Mixing sans with serif */
-    font-weight: 400;
+    color: rgba(255,255,255,0.8) !important;
+    font-size: 0.7rem;
+    letter-spacing: 2px;
     text-transform: uppercase;
-    font-size: 0.75rem;
-    letter-spacing: 1.5px;
+    font-weight: 500;
 }
 
 .nav-link:hover {
-    color: var(--polo-green) !important;
-    text-decoration: underline;
+    color: var(--gold) !important;
 }
 
-/* Hero Section - The "Ralph Lauren" Statement */
+/* 2. Dramatic Hunter Green Hero */
 .hero {
-    background-color: var(--polo-green);
-    background-image: url('https://www.transparenttextures.com/patterns/dark-leather.png'); /* Subtle texture */
-    color: white;
-    padding: 10rem 0;
-    text-align: center;
-    border-bottom: 8px solid var(--polo-gold);
+    background: var(--hunter) !important;
+    color: var(--white) !important;
+    padding: 10rem 0 !important;
+    text-align: left;
+    border-bottom: 10px solid var(--navy); /* Sleek color layering */
 }
 
 .hero h1 {
+    font-family: 'Libre Baskerville', serif;
     font-size: 5rem;
     font-weight: 400;
-    margin-bottom: 0.5rem;
-    letter-spacing: 2px;
+    line-height: 1;
 }
 
 .hero .tagline {
-    color: var(--polo-gold);
-    font-family: 'Helvetica Neue', sans-serif;
+    color: var(--gold);
     letter-spacing: 5px;
     text-transform: uppercase;
-    font-size: 1rem;
+    font-size: 0.8rem;
+    margin-bottom: 1.5rem;
 }
 
-/* Section Styling */
+/* 3. Sectioning */
+section {
+    padding: 7rem 0;
+}
+
 .section-title {
-    font-family: 'Georgia', serif;
+    font-family: 'Libre Baskerville', serif;
+    font-size: 2.5rem;
+    color: var(--hunter);
+    margin-bottom: 4rem;
+    border: none;
     font-weight: 700;
-    border-bottom: 1px solid #000;
-    display: block;
-    width: 100%;
-    margin-bottom: 2rem;
-    padding-bottom: 0.5rem;
-    text-transform: uppercase;
-    font-size: 1.2rem;
-    letter-spacing: 1px;
 }
 
-/* Work Cards - Editorial Style */
+/* 4. Minimalist Work Cards */
 .work-card {
-    background: transparent;
-    border: none;
-    border-top: 1px solid #000;
-    padding: 1.5rem 0;
-    transition: all 0.3s;
+    background: var(--white) !important;
+    border: 1px solid rgba(0,0,0,0.05) !important;
+    padding: 3rem;
+    height: 100%;
+    transition: all 0.4s ease;
 }
 
 .work-card:hover {
-    opacity: 0.8;
-}
-
-.work-card h3 {
-    font-size: 1.8rem;
-    font-weight: 700;
-    line-height: 1.2;
-    margin-top: 10px;
+    border-color: var(--gold) !important;
+    transform: translateY(-5px);
 }
 
 .work-card .category {
-    color: var(--polo-green);
-    font-family: 'Helvetica', sans-serif;
-    font-weight: 700;
-    text-transform: uppercase;
-    font-size: 0.7rem;
-}
-
-/* Buttons */
-.btn-primary {
-    background: var(--polo-navy);
-    border: none;
-    border-radius: 0; /* Square edges for the 90s look */
-    padding: 0.8rem 2rem;
-    font-family: 'Helvetica', sans-serif;
+    background: var(--hunter) !important;
+    color: var(--white) !important;
+    font-size: 0.6rem;
+    padding: 4px 12px;
     letter-spacing: 1px;
 }
 
-.btn-primary:hover {
-    background: var(--polo-green);
+.work-card h3 {
+    font-family: 'Libre Baskerville', serif;
+    font-size: 1.4rem;
+    margin-top: 1.5rem;
+    color: var(--navy);
 }
 
-/* Bio Image */
+.btn-primary {
+    background: var(--navy) !important;
+    border: none !important;
+    font-size: 0.7rem;
+    letter-spacing: 1px;
+    padding: 1rem 2rem;
+    margin-top: 1rem;
+}
+
+/* 5. Sleek Bio & Media */
 .bio-image {
-    border-radius: 0; /* Square/Rectangle is more formal */
-    border: 1px solid #000;
-    padding: 10px;
-    background: white;
-    box-shadow: 5px 5px 0px var(--polo-gold);
+    border: none !important;
+    border-left: 5px solid var(--gold); /* Minimalist accent */
+    border-radius: 0 !important;
+    box-shadow: none !important;
 }
 
-/* Footer */
+.media-item {
+    background: var(--white) !important;
+    border: none !important;
+}
+
+/* 6. Deep Navy Contact Section */
+.contact-section {
+    background: var(--navy) !important;
+    color: var(--white) !important;
+}
+
+.social-link {
+    border: 1px solid rgba(255,255,255,0.2) !important;
+    color: var(--white) !important;
+    font-size: 0.7rem;
+    letter-spacing: 2px;
+}
+
+.social-link:hover {
+    background: var(--gold) !important;
+    color: var(--navy) !important;
+    border-color: var(--gold) !important;
+}
+
 footer {
-    background: var(--polo-navy);
-    color: white;
-    border-top: 5px solid var(--polo-gold);
+    background: #000c17 !important; /* Deepest Navy */
+    color: rgba(255,255,255,0.4) !important;
+    padding: 3rem 0 !important;
+}
+.btn-primary:active {
+    background-color: var(--gold) !important;
+    transform: scale(0.98); /* Subtle "pressed" look */
+    transition: 0.1s;
 }
