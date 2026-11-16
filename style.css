@@ -612,3 +612,10 @@ footer a:hover { color: var(--gold-light); }
     .social-links { gap: 0.8rem; }
     .social-link { padding: 0.65rem 1rem; font-size: 0.68rem; }
 }
+
+/* ── Spotify embeds ── */
+.spotify-item iframe {
+    aspect-ratio: auto;
+    height: 232px;
+    border: none;
+}
